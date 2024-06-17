@@ -688,7 +688,7 @@ static inline int muldiv(int a, int b, int c, int *r)
 	return v;
 }
 
-static inline int muldiv_down(int a, int b, int c)
+static int muldiv_down(int a, int b, int c)
 {
 	int64_t v = (int64_t)a * b / c;
 	if (v > INT_MAX) {

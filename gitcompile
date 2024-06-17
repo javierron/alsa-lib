@@ -7,6 +7,7 @@ cbits32=
 modules=
 alisp=
 lto=
+
 if [ $# -ne 0 ]; then
   endloop=
   while [ -z "$endloop" ]; do
@@ -92,7 +93,7 @@ autoheader
 automake --foreign --copy --add-missing
 touch depcomp		# seems to be missing for old automake
 autoconf
-export CFLAGS="$cbits32 -O2 -Wall -W -Wunused-const-variable=0 -pipe -g $lto"
+export CFLAGS="$cbits32 -O0 -Wall -W -Wunused-const-variable=0 -save-temps -DInline= -pipe -g $lto"
 if [ -n "$lto" ]; then
   export AR="gcc-ar"
   export RANLIB="gcc-ranlib"
